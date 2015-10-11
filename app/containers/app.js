@@ -6,6 +6,11 @@ import { initFirebase } from 'services/firebase-service';
 
 import Grid from 'react-bootstrap/lib/Grid';
 
+import { LoginScreen } from 'containers/LoginScreen';
+
+// temporary
+import { logout } from 'services/firebase-service';
+
 @connect(s => s)
 export class App extends React.Component {
 
@@ -14,9 +19,11 @@ export class App extends React.Component {
     }
 
     render() {
+        var { dispatch } = this.props;
         return (
             <Grid>
-                PushupsGame
+                <div onClick={$=> dispatch(logout())}>PushupsGame</div>
+                <LoginScreen />
             </Grid>
         );
     }
