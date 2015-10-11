@@ -35,7 +35,6 @@ module.exports = {
             {
                 test: /\.js$/,
                 loaders: [
-                    // 'react-hot', 
                     'babel?' + [
                         'optional[]=es7.classProperties',
                         'optional[]=es7.decorators'
@@ -44,14 +43,38 @@ module.exports = {
                 exclude: /node_modules/,
                 include: __dirname
             },
-            { test: /\.css$/, loader: "style-loader!css-loader" },
-            { test: /\.scss$/, loaders: ['style', 'css', 'sass'] },
-            { test: /\.eot$/, loader: "file-loader" },
-            { test: /\.woff2$/, loader: "file-loader" },
-            { test: /\.woff$/, loader: "file-loader" },
-            { test: /\.ttf$/, loader: "file-loader" },
-            { test: /\.svg$/, loader: "file-loader" },
-            { test: /\.png$/, loader: "url-loader?mimetype=image/png" }
+            {
+                test: /\.css$/, 
+                loader: 'style-loader!css-loader' 
+            },
+            {
+                test: /\.scss$/,
+                loaders: ['style', 'css', 'sass'] 
+            },
+            {
+                test: /\.(jpe?g|png|gif|svg)$/i,
+                loader: 'url!img?optimizationLevel=7'
+            },
+            {
+                test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
+                loader: 'url?mimetype=application/font-woff'
+            },
+            {
+                test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
+                loader: 'url?mimetype=application/font-woff'
+            },
+            {
+                test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+                loader: 'url?mimetype=application/octet-stream'
+            },
+            {
+                test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+                loader: 'url?mimetype=application/vnd.ms-fontobject'
+            },
+            {
+                test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+                loader: 'url?mimetype=image/svg+xml'
+            }
         ]
     }
 };

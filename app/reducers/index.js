@@ -1,6 +1,6 @@
 
-import { settingsReducer } from 'reducers/settings-reducer';
+import { appReducer } from 'reducers/app-reducer';
 
 export const reducers = {
-    settings: settingsReducer
+    app: appReducer
 };
